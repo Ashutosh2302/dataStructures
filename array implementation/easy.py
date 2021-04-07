@@ -24,3 +24,28 @@ def isValidSubsequence(array, sequence):
             return False
 
     return True
+
+#this function takes a sorted array as an input and returns a new array of same length with squares of original integers also sorted in ascending order
+def sortedSquaredArray(array):
+    l = []
+    for e in array:
+        x = e * e
+        if len(l) == 0:
+            l.append(x)
+        elif len(l) == 1:
+            if l[0] >= x:
+                l.insert(0, x)
+            else:
+                l.append(x)
+        else:
+            for index in range(len(l) - 1):
+                if l[index] <= x and l[index + 1] >= x:
+                    l.insert(index + 1, x)
+                    break
+            else:
+                if l[len(l) - 1] <= x:
+                    l.append(x)
+                else:
+                    l.insert(0, x)
+
+    return l
