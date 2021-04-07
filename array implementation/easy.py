@@ -49,3 +49,27 @@ def sortedSquaredArray(array):
                     l.insert(0, x)
 
     return l
+
+#situation based problem
+def tournamentWinner(competitions, results):
+    teams = []
+    points = {}
+    for pair in competitions:
+        for team in pair:
+            if team not in teams:
+                teams.append(team)
+    for team in teams:
+        points[team] = 0
+    for i in range(len(competitions)):
+        if results[i] == 0:
+            points[competitions[i][1]] += 3
+        else:
+            points[competitions[i][0]] += 3
+    x = 0
+    for key, value in points.items():
+        if value >= x:
+            winner = key
+            x = value
+    return winner
+
+
