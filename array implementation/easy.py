@@ -50,7 +50,7 @@ def sortedSquaredArray(array):
 
     return l
 
-#situation based problem
+#competitive coding problem
 def tournamentWinner(competitions, results):
     teams = []
     points = {}
