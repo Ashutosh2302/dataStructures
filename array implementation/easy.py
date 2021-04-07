@@ -8,4 +8,19 @@ def twoNumberSum(array, targetSum):
 
     return []
 
+#function determines whether the second array is a sub-sequence of the first one.
+def isValidSubsequence(array, sequence):
+    index = []
+    if len(array) < len(sequence):
+        return False
+    for e in sequence:
+        try:
+            index.append(array.index(e))
+            array[array.index(e)] = 'a'
+        except:
+            return False
+    for e in range(len(index) - 1):
+        if index[e] > index[e + 1]:
+            return False
 
+    return True
